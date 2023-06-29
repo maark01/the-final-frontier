@@ -1,0 +1,47 @@
+.loading-content {
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spin-rocket {
+  position: relative;
+  max-width: 300px;
+  height: 300px;
+  animation: rotating 2s linear infinite;
+}
+
+.spin-rocket::before {
+  content: "\f197";
+  font-family: fontAwesome;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 60px;
+  transform: rotate(5deg);
+}
+
+
+@keyframes rotating {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

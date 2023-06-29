@@ -1,0 +1,12 @@
+{
+    "initial": {
+        "opacity": 0
+    },
+    "animate": {
+        "opacity": 1
+    },
+    "exit": {},
+    "transition": {
+        "duration": 0.75
+    }
+}

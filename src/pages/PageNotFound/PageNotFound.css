@@ -1,0 +1,99 @@
+.page-not-found-container {
+  display: flex;
+  justify-content: center;
+  color: #adb5bd;
+}
+
+.page-not-found-col {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 60rem;
+  overflow: hidden;
+}
+
+.page-not-found-content {
+  padding: 1rem;
+}
+
+.page-not-found-img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  border-radius: .3rem;
+  margin: 1rem 0;
+}
+
+
+
+.beam-up-link:hover {
+  transition: all 0.6s ease;
+  color: #343A40;
+}
+
+.beam-up-link:hover .enterprise-img {
+  position: relative;
+  animation-name: enterpriseFly;
+  animation-duration: 4s;
+  animation-delay: .2s;
+  animation-iteration-count: infinite;
+}
+
+.beam-up-link img {
+  margin: -30px 0;
+  width: 30px;
+  height: 10rem;
+}
+
+@keyframes enterpriseFly {
+  0% {
+    left: 0;
+    transform: rotateY(1turn);
+  }
+
+  30% {
+    left: 200px;
+  }
+
+
+  40% {
+    right: 200px;
+  }
+
+  100% {
+    left: 0;
+    transform: rotateY(0.5turn);
+  }
+}
+
+@media (min-width: 0em) {
+  .beam-up-link {
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #adb5bd;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 45rem;
+    text-decoration: none;
+  }
+
+  .beam-up-link img {
+    margin: -45px 0;
+    width: 30px;
+    height: 10rem;
+  }
+}
+
+@media (min-width: 62em) {
+  .beam-up-link {
+    display: flex;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #adb5bd;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 45rem;
+    text-decoration: none;
+  }
+}

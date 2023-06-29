@@ -1,0 +1,151 @@
+.news-container {
+    min-height: 100vh;
+}
+
+.loading-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.news-col {
+    margin: 0 auto;
+}
+
+.news-header-content {
+    color: #adb5bd;
+    text-align: center;
+}
+
+.news-header {
+    color: #adb5bd;
+}
+
+.news-box-card {
+    max-width: 60rem;
+    box-shadow: 0px 10px 15px #1e2124;
+    background-color: #464c53;
+    color: #adb5bd;
+
+}
+
+.news-box-img-content {
+    max-width: 22rem;
+    overflow: hidden;
+    border: none;
+    aspect-ratio: 16/9;
+}
+
+.news-box-img-content>img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.news-pagination-btns {
+    max-width: 60rem;
+}
+
+.news-btn-prev i,
+.news-btn-next i {
+    font-size: 42px;
+}
+
+.news-btn-prev,
+.news-btn-next {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+@media (min-width: 0em) {
+
+    .news-box-img-content {
+        max-width: 32rem;
+        padding: 1rem;
+    }
+
+    .news-box-img {
+        max-width: 100%;
+    }
+
+    .news-box-title {
+        overflow: none;
+        white-space: none;
+        text-overflow: none;
+    }
+
+    .news-box-summary {
+        overflow: none;
+        white-space: none;
+        text-overflow: none;
+    }
+
+    .news-header-title {
+        font-size: 2rem;
+    }
+
+    .news-header-text {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 48em) {
+
+    .news-box-img-content {
+        max-width: 22rem;
+        padding: 1rem;
+    }
+
+    .news-box-img {
+        max-width: 100%;
+    }
+
+    .news-box-title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .news-box-summary {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+}
+
+@media (min-width: 62em) {
+
+    .news-box-img-content {
+        max-width: 22rem;
+        padding: 1rem;
+    }
+
+    .news-box-img {
+        max-width: 100%;
+    }
+
+    .news-box-title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .news-box-summary {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .news-header-title {
+        font-size: 4rem;
+    }
+
+    .news-header-text {
+        font-size: 3rem;
+    }
+
+}

@@ -1,0 +1,85 @@
+.comments-container {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.comments-col {
+    max-width: 60rem;
+}
+
+.addcomments-form .form-control {
+    max-width: 80%;
+    resize: none;
+}
+
+.addcomments-form {
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    max-height: 16rem;
+    padding: 1rem 0;
+    background-color: #464c53;
+    box-shadow: 0px 10px 15px #1e2124;
+    color: #adb5bd;
+    border-radius: .3rem;
+}
+
+.btn-submit {
+    width: 8rem;
+}
+
+.sign-in-parag {
+    text-decoration: underline;
+}
+
+.sign-in-parag:hover {
+    cursor: pointer;
+}
+
+.commentlist-col {
+    max-width: 62rem;
+}
+
+.commentlist-content {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+        "one one one one one one two two"
+        "three three three three three three three three"
+    ;
+    padding: 1rem;
+    word-break: keep-all;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: .3rem;
+    box-shadow: 0px 10px 15px #1e2124;
+    background-color: #464c53;
+    color: #adb5bd;
+} 
+
+.commentlist-header {
+    grid-area: one;
+}
+
+.btn-icon-box {
+    grid-area: two;
+}
+
+.commentlist-comment-box,
+.commentlist-update-box {
+    grid-area: three;
+}
+
+.btn-icon-box .btn-icon {
+    position: relative;
+    float: right;
+}
+
+.btn-icon {
+    color: rgb(192, 203, 216);
+}
+
+.btn-icon:hover {
+    cursor: pointer;
+    color: #121212;
+    transition: all 0.4s ease;
+}
