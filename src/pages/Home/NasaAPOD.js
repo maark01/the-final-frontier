@@ -24,6 +24,9 @@ const NasaAPOD = () => {
         <div className="nasa-apod-content">
             <h3 className="nasa-apod-header">Astronomy Pictures of Last 10 Days</h3>
             <div className="nasa-apod-btns d-flex justify-content-between">
+            <button onClick={PrevBtnHandle} className={`nasa-btn-prev btn btn-secondary ${currentPage === 1 ? "disabled" : "active"}`}>
+                    <i className="fa-solid fa-caret-left"></i>
+                </button>
                 <button onClick={PrevBtnHandle} className={`nasa-btn-prev btn btn-secondary ${currentPage === 1 ? "disabled" : "active"}`}>
                     <i className="fa-solid fa-caret-left"></i>
                 </button>

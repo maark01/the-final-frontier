@@ -4,15 +4,11 @@ import { UserAuth } from "../../contexts/AuthContext"
 
 const LogInOut = () => {
 
-  const { handleGoogleSignIn,isLoggedIn, handleSignOut, user } = UserAuth()
+  const { handleGoogleSignIn, handleSignOut, user } = UserAuth()
 
   return (
     <li classame="nav-item">
-      { user === null ? (
-        <button className="btn btn-secondary fw-bold" onClick={handleGoogleSignIn}>Log in with Google</button>
-      ) : (
-        <button className="btn btn-secondary fw-bold" onClick={handleSignOut}>Log out</button>
-      )}
+       <button className="btn btn-secondary fw-bold" onClick={user === null ? handleGoogleSignIn : handleSignOut }>{user === null ? "Log in with Google" : "Log out"}</button>
     </li>
   )
 }
