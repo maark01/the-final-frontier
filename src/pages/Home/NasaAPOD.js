@@ -10,6 +10,8 @@ const NasaAPOD = () => {
 
     const opts = { width: "100%", maxheight: "26rem" }
 
+    console.log(data)
+
     if (isLoading) {
         return (<Loading />)
     }
@@ -43,7 +45,7 @@ const NasaAPOD = () => {
                             <h4 className="nasa-apod-title fw-bold">{elem.title}</h4>
                             <p className="nasa-apod-explanation">{elem.explanation}</p>
                             <p className="nasa-apod-text">Source: NASA - {elem.date}</p>
-                            <a className="nasa-apod-anchor text-light fw-bold" href={elem.url} target="_blank" rel="noreferrer">Read more</a>
+                            {/*<a className="nasa-apod-anchor text-light fw-bold" href={elem.url} target="_blank" rel="noreferrer">Read more</a>*/}
                         </div>
                     </div>
                 )
