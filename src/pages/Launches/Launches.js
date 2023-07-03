@@ -43,7 +43,6 @@ const Launches = () => {
 
   return (
     <CustomMotion>
-
       <div className="launch-container container">
         <div className="row">
           <div className="launch-col col-sm-12 col-md-12 col-lg-12">
@@ -63,8 +62,8 @@ const Launches = () => {
                     launch_date={elem.net}
                     launch_service_name={elem.launch_service_provider.name}
                     launch_service_type={elem.launch_service_provider.type}
-                    launch_mission_description={elem.mission != null ? elem.mission.description : "No mission details"}
-                    orbit={elem.mission.orbit.name}
+                    launch_mission_description={elem.mission !== null ? elem.mission.description : "No mission details"}
+                    orbit={elem.mission !== null ? elem.mission.orbit.name : "No mission details"}
                   />
                 </LaunchCardWrapper>
               ))}

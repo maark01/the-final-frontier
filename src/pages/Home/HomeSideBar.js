@@ -40,7 +40,10 @@ const HomeSideBar = () => {
                   image={elem.image}
                   launch_name={elem.name}
                   launch_date={elem.net}
-                  launch_mission={elem.mission != null ? elem.mission.description : "We do not have any details of this mission!"}
+                  launch_service_name={elem.launch_service_provider.name}
+                  launch_service_type={elem.launch_service_provider.type}
+                  launch_mission_description={elem.mission != null ? elem.mission.description : "No mission details"}
+                  orbit={elem.mission.orbit.name}
                 />
               )
             })}

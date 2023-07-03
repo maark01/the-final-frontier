@@ -50,7 +50,7 @@ const LaunchCards = ({ image, card_id, launch_name, launch_date, launch_service_
                     <h6 className="launch-card-text text-center fw-bold">Launch Service Type:</h6>
                     <p className="launch-card-text text-center">{launch_service_type}</p>
                     <h6 className="launch-card-text text-center fw-bold">Mission:</h6>
-                    <p className="launch-card-text text-left">{launch_mission_description}</p>
+                    <p className={`launch-card-text text-${launch_mission_description !== null ? "left" : "center"}`}>{launch_mission_description}</p>
                     <h6 className="launch-card-text text-center fw-bold">Orbit Level:</h6>
                     <p className="launch-card-text text-center">{orbit}</p>
                 </div>}

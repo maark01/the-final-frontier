@@ -160,7 +160,10 @@
         display: flex;
     }
 
-    .home-card,
+    .home-card{
+        max-width: 95%;
+    }
+    
     .latest-news-card,
     .nasa-apod-card {
         max-width: 100%;
