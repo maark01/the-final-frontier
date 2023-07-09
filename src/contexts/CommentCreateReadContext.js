@@ -3,7 +3,6 @@ import { query, collection, onSnapshot, addDoc, serverTimestamp, orderBy } from 
 import { UserAuth } from "./AuthContext"
 import { firestoreDB } from "../firebase"
 
-
 export const CommentCreateReadContext = createContext()
 
 export const CommentCreateReadProvider = ({ children }) => {
