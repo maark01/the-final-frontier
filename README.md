@@ -1,3 +1,9 @@
+Welcome!
+
+This is my first portfolio project. I developed that by native React.js with Firebase.
+
+I hope you will like my project, leave a comment if you like it!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
