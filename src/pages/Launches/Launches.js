@@ -7,6 +7,7 @@ import "./Launches.css"
 
 const Launches = () => {
 
+   // Access the props of SpaceLaunchContext
   const { isLoading, isError, data } = useContext(SpaceLaunchContext)
 
   const LaunchCardWrapper = ({ children }) => {
@@ -52,6 +53,7 @@ const Launches = () => {
               <hr />
             </div>
             <div className="launch-main-content">
+              {/* Mapping the database content by map method and prepare properties */}
               {data.map((elem) => (
                 <LaunchCardWrapper key={elem.id}>
                   <LaunchCards

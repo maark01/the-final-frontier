@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react"
 
+// Access the props from Launches.js file
 const LaunchCards = ({ image, card_id, launch_name, launch_date, launch_service_name, launch_service_type, launch_mission_description, orbit }) => {
     const [result, setResult] = useState("")
     const [show, setShow] = useState(false)
     const launchDate = new Date(launch_date).getTime()
 
+    // Countdown timer for launch date
     useEffect(() => {
         const launchCountDown = setInterval(() => {
             const currentDate = new Date().getTime()
@@ -18,14 +20,17 @@ const LaunchCards = ({ image, card_id, launch_name, launch_date, launch_service_
             const strNullHour = hours < 10 ? "0" : ""
             const strNullDay = days < 10 ? "0" : ""
 
+            // Update the result state with the countdown
             distance < 0 ? clearInterval(launchCountDown) : setResult(`${strNullDay + days}d ${strNullHour + hours}h ${strNullMin + minutes}m ${strNullSec + seconds}s`)
         }, 1000)
 
+        // Clean up the interval when the component unmounts
         return () => {
             clearInterval(launchCountDown)
         }
     }, [launchDate])
 
+    // Toggle launch mission description visibility
     const toggleLaunchMission = () => {
         setShow(!show)
     }

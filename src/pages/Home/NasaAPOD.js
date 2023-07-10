@@ -6,16 +6,17 @@ import YouTube from "react-youtube"
 
 const NasaAPOD = () => {
 
+    // Access the props of NasaPicture context
     const { data, isLoading, isError, currentPage, NextBtnHandle, PrevBtnHandle } = useContext(NasaPicture)
 
     const opts = { width: "100%", maxheight: "26rem" }
 
-    console.log(data)
-
+    // Loading condition
     if (isLoading) {
         return (<Loading />)
     }
 
+    // Error condition
     if (isError) {
         return (
             <div className="error-content my-auto text-center"><h3>Oh no, we have an error! Content cannot load!</h3></div>
@@ -45,7 +46,6 @@ const NasaAPOD = () => {
                             <h4 className="nasa-apod-title fw-bold">{elem.title}</h4>
                             <p className="nasa-apod-explanation">{elem.explanation}</p>
                             <p className="nasa-apod-text">Source: NASA - {elem.date}</p>
-                            {/*<a className="nasa-apod-anchor text-light fw-bold" href={elem.url} target="_blank" rel="noreferrer">Read more</a>*/}
                         </div>
                     </div>
                 )

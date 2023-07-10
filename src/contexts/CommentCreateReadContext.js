@@ -5,12 +5,15 @@ import { firestoreDB } from "../firebase"
 
 export const CommentCreateReadContext = createContext()
 
+// Provider component for create comments and read them
 export const CommentCreateReadProvider = ({ children }) => {
+
+    // Set variables for the context
     const { user } = UserAuth()
     const [userComments, setUserComments] = useState([])
     const [inputUserComment, setInputUserComment] = useState("")
 
-    //create a comment
+    // Create a comment
     const createComment = async (event) => {
         event.preventDefault(event)
         const userStr = user?.displayName
@@ -33,7 +36,7 @@ export const CommentCreateReadProvider = ({ children }) => {
         setInputUserComment(event.target.inputComment.value = "")
     }
 
-    //read all comments
+    // Read all comments
     useEffect(() => {
         const q = query(collection(firestoreDB, "user_comments"), orderBy("timestamp", "desc"))
         const unsubscribe = onSnapshot(q, (querySnapshot) => {

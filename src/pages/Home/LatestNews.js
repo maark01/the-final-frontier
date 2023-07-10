@@ -4,6 +4,7 @@ import { SpaceNewsContext } from "../../contexts/SpaceNewsContext"
 
 const LatestNews = () => {
 
+    // Access the array of Space News Context
     const { spaceNewArr } = useContext(SpaceNewsContext)
 
     return (

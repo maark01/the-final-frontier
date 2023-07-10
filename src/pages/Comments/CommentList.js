@@ -6,10 +6,11 @@ import { format } from "date-fns"
 
 const CommentList = ({ commElem }) => {
 
-    const { user } = UserAuth()
-    const [editing, setEditing] = useState(false)
-    const [updatedComment, setUpdatedComment] = useState("")
+    const { user } = UserAuth() // Access the user authentication context
+    const [editing, setEditing] = useState(false) // Boolean state for editing
+    const [updatedComment, setUpdatedComment] = useState("") // Set the updated comment
 
+    // Update function / "save funciton"
     const updateHandle = async (id) => {
         if (id === commElem.id) {
             await updateDoc(doc(firestoreDB, "user_comments", id), {
@@ -19,14 +20,17 @@ const CommentList = ({ commElem }) => {
         setEditing(false)
     }
 
+    // Delete Function
     const deleteHandle = async (id) => {
         await deleteDoc(doc(firestoreDB, "user_comments", id))
     }
 
+    // Edit function
     const editHandle = () => {
         setEditing(true)
     }
 
+    // Cancel Function
     const cancelHandle = () => {
         setEditing(false)
     }

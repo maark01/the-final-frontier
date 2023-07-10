@@ -7,22 +7,10 @@ import { SpaceNewsProvider } from "./contexts/SpaceNewsContext"
 import { SpaceLaunchProvider } from "./contexts/SpaceLaunchContext"
 import { NasaPictureProvider } from "./contexts/NasaPictureContext"
 import { CommentCreateReadProvider } from "./contexts/CommentCreateReadContext"
-import Home from "./pages/Home/Home"
-import News from "./pages/News/News"
-import Launches from "./pages/Launches/Launches"
-import Comments from "./pages/Comments/Comments"
+import { PagesProvider } from "./contexts/PagesContext"
 import "./App.css"
-import PageNotFound from "./pages/PageNotFound/PageNotFound"
 
 function App() {
-
-  const pages = [
-    { name: "Home", path: "/", menubar: true, element: <Home /> },
-    { name: "News", path: "/news", menubar: true, element: <News /> },
-    { name: "Launches", path: "/launches", menubar: true, element: <Launches /> },
-    { name: "Comments", path: "/comments", menubar: true, element: <Comments /> },
-    { name: "PageNotFound", path: "*", menubar: false, element: <PageNotFound/> },
-  ]
 
   return (
     <div className="App">
@@ -31,11 +19,13 @@ function App() {
           <SpaceLaunchProvider>
             <NasaPictureProvider>
               <CommentCreateReadProvider>
-                <Router>
-                  <Header menu={pages} />
-                  <Content routes={pages} />
-                  <Footer />
-                </Router>
+                <PagesProvider>
+                  <Router>
+                    <Header />
+                    <Content />
+                    <Footer />
+                  </Router>
+                </PagesProvider>
               </CommentCreateReadProvider>
             </NasaPictureProvider>
           </SpaceLaunchProvider>

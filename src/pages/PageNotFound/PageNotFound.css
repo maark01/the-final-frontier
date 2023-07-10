@@ -13,6 +13,9 @@
 }
 
 .page-not-found-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   padding: 1rem;
 }
 
@@ -24,46 +27,9 @@
   margin: 1rem 0;
 }
 
-
-
 .beam-up-link:hover {
   transition: all 0.6s ease;
   color: #343A40;
-}
-
-.beam-up-link:hover .enterprise-img {
-  position: relative;
-  animation-name: enterpriseFly;
-  animation-duration: 4s;
-  animation-delay: .2s;
-  animation-iteration-count: infinite;
-}
-
-.beam-up-link img {
-  margin: -30px 0;
-  width: 30px;
-  height: 10rem;
-}
-
-@keyframes enterpriseFly {
-  0% {
-    left: 0;
-    transform: rotateY(1turn);
-  }
-
-  30% {
-    left: 200px;
-  }
-
-
-  40% {
-    right: 200px;
-  }
-
-  100% {
-    left: 0;
-    transform: rotateY(0.5turn);
-  }
 }
 
 @media (min-width: 0em) {

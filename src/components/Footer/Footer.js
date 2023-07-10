@@ -2,6 +2,7 @@ import "./Footer.css"
 
 export default function Footer() {
 
+    // Array of social media elements with name, href, and icon properties
     const socialMediaElements = [
         { name: "Facebook", href: "https://facebook.com", icon: "fa-brands fa-facebook" },
         { name: "Instagram", href: "https://instagram.com", icon: "fa-brands fa-instagram" },

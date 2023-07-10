@@ -7,6 +7,7 @@ import "./News.css"
 
 const News = () => {
 
+    // Access the props of SpaceNewsContext 
     const { isLoading, isError, currentPage, spaceNewArr, spaceNewsPerPage, PrevBtnHandle, NextBtnHandle } = useContext(SpaceNewsContext)
 
     if (isLoading) {

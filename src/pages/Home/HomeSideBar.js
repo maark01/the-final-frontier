@@ -8,6 +8,7 @@ const HomeSideBar = () => {
     const navigate = useNavigate()
     const { data } = useContext(SpaceLaunchContext)
 
+    // Set the details of menu parts in an array
     const homeCards = [
         {
             cardTitle: "News",

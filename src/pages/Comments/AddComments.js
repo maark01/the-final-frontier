@@ -1,19 +1,22 @@
-import React, { useContext }  from "react"
+import React, { useContext } from "react"
 import { UserAuth } from "../../contexts/AuthContext"
-import {CommentCreateReadContext} from "../../contexts/CommentCreateReadContext"
+import { CommentCreateReadContext } from "../../contexts/CommentCreateReadContext"
 
 
 const AddComments = () => {
 
+    // Access the user authentication context
     const { handleGoogleSignIn, user } = UserAuth()
-    const {createComment, setInputUserComment} = useContext(CommentCreateReadContext)
+
+    // Access the comment creation and input functions from the comment context
+    const { createComment, setInputUserComment } = useContext(CommentCreateReadContext)
 
     return (
         <div className="addcomments">
             {user !== null ? (
                 <div className="addcomments-form">
                     <form className="form" autoComplete="off" onSubmit={createComment}>
-                    <h3 className="text-center my-2">Leave a comment</h3>
+                        <h3 className="text-center my-2">Leave a comment</h3>
                         <div className="mb-3 text-center">
                             <textarea className="form-control mx-auto" cols={3} placeholder="Write something..." name="inputComment" onChange={(event) => setInputUserComment(event.target.value)}></textarea>
                         </div>
