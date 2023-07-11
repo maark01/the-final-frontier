@@ -15,23 +15,24 @@ export const SpaceNewsProvider = ({ children }) => {
     const getSpaceNews = async () => {
         try {
             const response = await axios.get("https://api.spaceflightnewsapi.net/v3/articles?_limit=100&_start=10")
-            return response.data
+            const spaceNewsData = response.data
+            return spaceNewsData
         } catch (error) {
             console.log(error)
         }
     }
 
-     // UseQuery hook to fetch space news with caching
-    const { data = [], isLoading, isError } = useQuery(["space-news"], getSpaceNews, { staleTime: 3600000, cacheTime: 3600000 })
+    // UseQuery hook to fetch space news with caching
+    const { data = [], isLoading, isError } = useQuery({ queryKey: ["space-news"], queryFn: getSpaceNews, cacheTime: 3600000 })
 
-     // Create an array for space news
+    // Create an array for space news
     const spaceNewArr = [...data]
 
     for (let i = 1; i <= (spaceNewArr.length = spaceNewsPerPage); i++) {
         spaceNewArr.push(i)
     }
 
-     // Function to handle next button click
+    // Function to handle next button click
     const NextBtnHandle = () => {
         setCurrentPage(currentPage + 1)
         setSpaceNewsPerPage(spaceNewsPerPage + 5)
@@ -44,7 +45,7 @@ export const SpaceNewsProvider = ({ children }) => {
     }
 
     return (
-        <SpaceNewsContext.Provider value={{ data, spaceNewsPerPage, isLoading, isError, spaceNewArr, currentPage, setCurrentPage, NextBtnHandle, PrevBtnHandle }}>
+        <SpaceNewsContext.Provider value={{ spaceNewsPerPage, isLoading, isError, spaceNewArr, currentPage, setCurrentPage, NextBtnHandle, PrevBtnHandle }}>
             {children}
         </SpaceNewsContext.Provider>
     );

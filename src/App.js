@@ -8,6 +8,7 @@ import { SpaceLaunchProvider } from "./contexts/SpaceLaunchContext"
 import { NasaPictureProvider } from "./contexts/NasaPictureContext"
 import { CommentCreateReadProvider } from "./contexts/CommentCreateReadContext"
 import { PagesProvider } from "./contexts/PagesContext"
+import { AstronautProvider } from "./contexts/AstronautContext"
 import "./App.css"
 
 function App() {
@@ -16,19 +17,21 @@ function App() {
     <div className="App">
       <AuthContextProvider>
         <SpaceNewsProvider>
-          <SpaceLaunchProvider>
-            <NasaPictureProvider>
-              <CommentCreateReadProvider>
-                <PagesProvider>
-                  <Router>
-                    <Header />
-                    <Content />
-                    <Footer />
-                  </Router>
-                </PagesProvider>
-              </CommentCreateReadProvider>
-            </NasaPictureProvider>
-          </SpaceLaunchProvider>
+          <AstronautProvider>
+            <SpaceLaunchProvider>
+              <NasaPictureProvider>
+                <CommentCreateReadProvider>
+                  <PagesProvider>
+                    <Router>
+                      <Header />
+                      <Content />
+                      <Footer />
+                    </Router>
+                  </PagesProvider>
+                </CommentCreateReadProvider>
+              </NasaPictureProvider>
+            </SpaceLaunchProvider>
+          </AstronautProvider>
         </SpaceNewsProvider>
       </AuthContextProvider>
     </div>

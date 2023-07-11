@@ -1,0 +1,49 @@
+.container {
+    max-height: 100vh;
+    color: #adb5bd;
+    font-weight: bold;
+}
+
+.astronaut-header-content {
+    color: #adb5bd;
+    text-align: center;
+}
+
+.astronaut-searchbar-selectbar-content {
+    max-width: 26rem;
+}
+
+.astronaut-btn-prev i,
+.astronaut-btn-next i {
+    font-size: 42px;
+}
+
+.astronaut-btn-prev,
+.astronaut-btn-next {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+@media (min-width: 0em) {
+
+    .astronaut-header-title {
+        font-size: 2rem;
+    }
+
+    .astronaut-header-text {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 62em) {
+ 
+    .astronaut-header-title {
+        font-size: 4rem;
+    }
+
+    .astronaut-header-text {
+        font-size: 3rem;
+    }
+}

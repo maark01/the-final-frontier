@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
@@ -22,16 +22,17 @@ export const NasaPictureProvider = ({ children }) => {
     const getNasaPicture = async () => {
         try {
             const response = await axios.get(url)
-            return response.data
+            const nasaData = response.data
+            return nasaData
         } catch (error) {
             console.log(error)
         }
     }
 
-     // UseQuery hook to fetch NASA daily images with caching
-    const { data = [], isLoading, isError } = useQuery(["NASA-APOD"], getNasaPicture, { staleTime: 86400000, cacheTime: 86400000 })
+    // UseQuery hook to fetch NASA daily images with caching
+    const { data: nasaData, isLoading, isError, refetch } = useQuery({ queryKey: ["NASA-APOD"], queryFn: getNasaPicture, cacheTime: 86400000 })
 
-     // Function to handle next button click
+    // Function to handle next button click
     const NextBtnHandle = () => {
         setCurrentPage(currentPage + 1)
     }
@@ -41,8 +42,13 @@ export const NasaPictureProvider = ({ children }) => {
         setCurrentPage(currentPage - 1)
     }
 
+    // Trigger the refetch whenever the value of startDate and endDate change
+    useEffect(() => {
+        refetch()
+    }, [startDate, endDate, refetch])
+
     return (
-        <NasaPicture.Provider value={{ isLoading, isError, data, currentPage, NextBtnHandle, PrevBtnHandle }}>
+        <NasaPicture.Provider value={{ isLoading, isError, data: nasaData || [], currentPage, NextBtnHandle, PrevBtnHandle }}>
             {children}
         </NasaPicture.Provider>
     )
