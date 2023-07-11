@@ -57,7 +57,7 @@ const Astronaut = () => {
                         <hr />
                     </div>
                     <div className="astronaut-searchbar-selectbar-content mx-auto">
-                        <label className="form-label">Name:</label>
+                        <label className="form-label">Name Search:</label>
                         <input className="form-control mb-2" type="text" name="searchfieldInput" placeholder="filter by name..." onChange={searchfieldInputHandle} autoComplete="off" />
                         <div>
                             <select className="form-select form-select-sm mb-3" aria-label=".form-select" value={selectedOption} onChange={onSelectHandle}>
