@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 
 import axios from "axios"
@@ -43,6 +43,11 @@ export const SpaceNewsProvider = ({ children }) => {
         setCurrentPage(currentPage - 1)
         setSpaceNewsPerPage(spaceNewsPerPage - 5)
     }
+
+    //Scroll to top, when next/prev buttons pressed
+    useEffect(()=>{
+        window.scrollTo({top: 0})
+    },[currentPage])
 
     return (
         <SpaceNewsContext.Provider value={{ spaceNewsPerPage, isLoading, isError, spaceNewArr, currentPage, setCurrentPage, NextBtnHandle, PrevBtnHandle }}>

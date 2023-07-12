@@ -47,6 +47,7 @@ export const AstronautProvider = ({ children }) => {
         refetch()
     }, [offsetNum, refetch])
 
+    //Scroll to top, when next/prev buttons pressed
     useEffect(()=>{
         window.scrollTo({top: 0})
     },[offsetNum])

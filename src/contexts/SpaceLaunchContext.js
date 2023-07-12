@@ -10,6 +10,7 @@ export const SpaceLaunchProvider = ({ children }) => {
     const space_apiKey = process.env.REACT_APP_SPACE_API_KEY
     const [currentPage, setCurrentPage] = useState(1)
     const [spaceLaunchPerPage, setSpaceLaunchPerPage] = useState(3)
+    const [launches, setLaunches] = useState([])
 
     // Function to fetch space launches
     const getSpaceLaunch = async () => {
@@ -21,8 +22,8 @@ export const SpaceLaunchProvider = ({ children }) => {
                     "Authorization": `Bearer ${space_apiKey}`
                 }
             })
-            const launches = response.data.results
-            return launches
+            const launchData = response.data.results
+            setLaunches(launchData)
         } catch (error) {
             console.log(error)
             throw error
@@ -30,7 +31,7 @@ export const SpaceLaunchProvider = ({ children }) => {
     }
 
     // UseQuery hook to fetch space launches with caching
-    const { data: launches, isLoading, isError } = useQuery({ queryKey: ["launches"], queryFn: getSpaceLaunch, cacheTime: 86400000 })
+    const { data = launches, isLoading, isError } = useQuery({ queryKey: ["launches"], queryFn: getSpaceLaunch, cacheTime: 86400000 })
 
     // Function to handle next button click
     const NextBtnHandle = () => {
@@ -45,7 +46,7 @@ export const SpaceLaunchProvider = ({ children }) => {
     }
 
     return (
-        <SpaceLaunchContext.Provider value={{ isLoading, isError, spaceLaunchPerPage, currentPage, data :launches || [], PrevBtnHandle, NextBtnHandle }}>
+        <SpaceLaunchContext.Provider value={{ isLoading, isError, spaceLaunchPerPage, currentPage, data, PrevBtnHandle, NextBtnHandle }}>
             {children}
         </SpaceLaunchContext.Provider>
     );

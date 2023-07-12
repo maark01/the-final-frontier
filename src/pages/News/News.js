@@ -44,15 +44,6 @@ const News = () => {
                             <p className="news-header-text">Here you can follow the recent news </p>
                             <hr />
                         </div>
-                        <div className="news-pagination-btns d-flex justify-content-between mb-3">
-                            <button onClick={PrevBtnHandle} className={`news-btn-prev btn btn-secondary ${spaceNewsPerPage === 5 ? "disabled" : "active"}`}>
-                                <i className="fa-solid fa-caret-left"></i>
-                            </button>
-                            <span className="news-current-page my-auto text-light fw-bold">{currentPage} / 20</span>
-                            <button onClick={NextBtnHandle} className={`news-btn-next btn btn-secondary ${spaceNewsPerPage !== 100 ? "active" : "disabled"}`}>
-                                <i className="fa-solid fa-caret-right"></i>
-                            </button>
-                        </div>
                         {spaceNewArr.slice(spaceNewsPerPage - 5, spaceNewsPerPage).map(elem => {
                             return (
                                 <div className="news-box mb-3" key={elem.id}>
@@ -74,6 +65,15 @@ const News = () => {
                                 </div>
                             )
                         })}
+                        <div className="news-pagination-btns d-flex justify-content-between mb-3">
+                            <button onClick={PrevBtnHandle} className={`news-btn-prev btn btn-secondary ${spaceNewsPerPage === 5 ? "disabled" : "active"}`}>
+                                <i className="fa-solid fa-caret-left"></i>
+                            </button>
+                            <span className="news-current-page my-auto text-light fw-bold">{currentPage} / 20</span>
+                            <button onClick={NextBtnHandle} className={`news-btn-next btn btn-secondary ${spaceNewsPerPage !== 100 ? "active" : "disabled"}`}>
+                                <i className="fa-solid fa-caret-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
