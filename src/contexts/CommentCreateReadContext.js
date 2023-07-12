@@ -15,7 +15,7 @@ export const CommentCreateReadProvider = ({ children }) => {
 
     // Create a comment
     const createComment = async (event) => {
-        event.preventDefault(event)
+        event.preventDefault()
         const userStr = user?.displayName
         const firstName = userStr.split(" ").slice(0, 1).map(fname => (fname))
         const lastName = userStr.split(" ").slice(-1, userStr.length).map(lname => (lname)[0])
