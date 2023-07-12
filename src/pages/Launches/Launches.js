@@ -8,7 +8,7 @@ import "./Launches.css"
 const Launches = () => {
 
    // Access the props of SpaceLaunchContext
-  const { isLoading, isError, data } = useContext(SpaceLaunchContext)
+  const { loading, error, launches} = useContext(SpaceLaunchContext)
 
   const LaunchCardWrapper = ({ children }) => {
     return (
@@ -18,7 +18,7 @@ const Launches = () => {
     )
   }
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
@@ -30,7 +30,7 @@ const Launches = () => {
     )
   }
 
-  if (isError) {
+  if (error) {
     return (
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
@@ -54,10 +54,10 @@ const Launches = () => {
             </div>
             <div className="launch-main-content">
               {/* Mapping the database content by map method and prepare properties */}
-              {data.map((elem) => (
+              {launches.map((elem) => (
                 <LaunchCardWrapper key={elem.id}>
                   <LaunchCards
-                    isLoading={isLoading}
+                    loading={loading}
                     image={elem.image}
                     card_id={elem.id}
                     launch_name={elem.name}

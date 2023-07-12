@@ -6,7 +6,7 @@ import LaunchCards from "../Launches/LaunchCards"
 const HomeSideBar = () => {
 
     const navigate = useNavigate()
-    const { data } = useContext(SpaceLaunchContext)
+    const { launches } = useContext(SpaceLaunchContext)
 
     // Set the details of menu parts in an array
     const homeCards = [
@@ -33,7 +33,7 @@ const HomeSideBar = () => {
     return (
         <div className="home-side-col col-sm-12 col-md-12 col-lg-4 mx-auto">
             <h3 className="next-events-header text-center mb-3">Next Event</h3>
-            {data.slice(0, 1).map((elem, index) => {
+            {launches.slice(0, 1).map((elem, index) => {
             return (
                 <LaunchCards
                   key={index}

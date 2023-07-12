@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react"
-import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
 export const SpaceLaunchContext = createContext()
@@ -7,46 +6,48 @@ export const SpaceLaunchContext = createContext()
 // Provider component for space launches
 export const SpaceLaunchProvider = ({ children }) => {
 
-    const space_apiKey = process.env.REACT_APP_SPACE_API_KEY
-    const [currentPage, setCurrentPage] = useState(1)
-    const [spaceLaunchPerPage, setSpaceLaunchPerPage] = useState(3)
     const [launches, setLaunches] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState("")
 
     // Function to fetch space launches
-    const getSpaceLaunch = async () => {
-        try {
-            const url = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?hide_recent_previous=true&limit=9"
-            const response = await axios.get(url, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${space_apiKey}`
+    useEffect(() => {
+
+        let isMounted = true
+
+        const getSpaceLaunch = async () => {
+            try {
+                const space_apiKey = process.env.REACT_APP_SPACE_API_KEY
+                const url = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?hide_recent_previous=true&limit=9"
+                const response = await axios.get(url, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${space_apiKey}`
+                    }
+                })
+                setLoading(true)
+                const launchData = response.data.results
+                if (isMounted) {
+                    setLaunches(launchData)
+                    setLoading(false)
                 }
-            })
-            const launchData = response.data.results
-            setLaunches(launchData)
-        } catch (error) {
-            console.log(error)
-            throw error
+            } catch (error) {
+                setError(error)
+                setLoading(false)
+            }
         }
-    }
 
-    // UseQuery hook to fetch space launches with caching
-    const { data = launches, isLoading, isError } = useQuery({ queryKey: ["launches"], queryFn: getSpaceLaunch, cacheTime: 86400000 })
+        getSpaceLaunch()
 
-    // Function to handle next button click
-    const NextBtnHandle = () => {
-        setCurrentPage(currentPage + 1)
-        setSpaceLaunchPerPage(spaceLaunchPerPage + 3)
-    }
+        return () => {
+            isMounted = false
+        }
+    }, [])
 
-    // Function to handle previous button click
-    const PrevBtnHandle = () => {
-        setCurrentPage(currentPage - 1)
-        setSpaceLaunchPerPage(spaceLaunchPerPage - 3)
-    }
+
 
     return (
-        <SpaceLaunchContext.Provider value={{ isLoading, isError, spaceLaunchPerPage, currentPage, data, PrevBtnHandle, NextBtnHandle }}>
+        <SpaceLaunchContext.Provider value={{ loading, error, launches }}>
             {children}
         </SpaceLaunchContext.Provider>
     );
