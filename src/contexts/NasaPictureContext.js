@@ -34,12 +34,12 @@ export const NasaPictureProvider = ({ children }) => {
 
     // Function to handle next button click
     const NextBtnHandle = () => {
-        setCurrentPage(currentPage + 1)
+        setCurrentPage((prevCurrentPageNum) => prevCurrentPageNum + 1)
     }
 
     // Function to handle previous button click
     const PrevBtnHandle = () => {
-        setCurrentPage(currentPage - 1)
+        setCurrentPage((prevCurrentPageNum) => prevCurrentPageNum - 1)
     }
 
     // Trigger the refetch whenever the value of startDate and endDate change

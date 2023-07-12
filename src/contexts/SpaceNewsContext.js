@@ -34,20 +34,20 @@ export const SpaceNewsProvider = ({ children }) => {
 
     // Function to handle next button click
     const NextBtnHandle = () => {
-        setCurrentPage(currentPage + 1)
-        setSpaceNewsPerPage(spaceNewsPerPage + 5)
+        setCurrentPage((prevCurrentPageNum) => prevCurrentPageNum + 1)
+        setSpaceNewsPerPage((prevPerPageNum) => prevPerPageNum + 5)
     }
 
     // Function to handle previous button click
     const PrevBtnHandle = () => {
-        setCurrentPage(currentPage - 1)
-        setSpaceNewsPerPage(spaceNewsPerPage - 5)
+        setCurrentPage((prevCurrentPageNum) => prevCurrentPageNum - 1)
+        setSpaceNewsPerPage((prevPerPageNum) => prevPerPageNum - 5)
     }
 
     //Scroll to top, when next/prev buttons pressed
-    useEffect(()=>{
-        window.scrollTo({top: 0})
-    },[currentPage])
+    useEffect(() => {
+        window.scrollTo({ top: 0 })
+    }, [currentPage])
 
     return (
         <SpaceNewsContext.Provider value={{ spaceNewsPerPage, isLoading, isError, spaceNewArr, currentPage, setCurrentPage, NextBtnHandle, PrevBtnHandle }}>
