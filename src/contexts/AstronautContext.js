@@ -47,6 +47,10 @@ export const AstronautProvider = ({ children }) => {
         refetch()
     }, [offsetNum, refetch])
 
+    useEffect(()=>{
+        window.scrollTo({top: 0})
+    },[offsetNum])
+
     // Provide the Astronaut data through the context
     return (
         <AstronautContext.Provider value={{ offsetNum, data: astronauts || [], isLoading, isError, getNextAstronauts, getPrevAstronauts }}>
