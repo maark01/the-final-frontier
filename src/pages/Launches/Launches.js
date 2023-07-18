@@ -35,7 +35,7 @@ const Launches = () => {
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
           <div className="col-12 text-light">
-            <h3>You have reached the maximum API calls!</h3>
+            <h3>Server Error, please come back later!</h3>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Launches = () => {
           <div className="launch-col col-sm-12 col-md-12 col-lg-12">
             <div className="launch-header-content">
               <h3 className="launch-header-title text-center">Launches</h3>
-              <p className="launch-header-text">Here you can follow the upcoming events </p>
+              <p className="launch-header-text">Here you can follow the upcoming events</p>
               <hr />
             </div>
             <div className="launch-main-content">

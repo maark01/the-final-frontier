@@ -43,7 +43,7 @@ const Astronaut = () => {
 
     // Render error state if there was an error fetching data
     if (isError) {
-        return <div className="error text-center fs-2 fw-bold my-3">Error: Failed to fetch astronaut data</div>
+        return <div className="error text-center fs-2 fw-bold my-3">Server Error, please come back later!</div>
     }
 
     // Render the Astronaut component
