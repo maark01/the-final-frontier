@@ -69,17 +69,6 @@ const Astronaut = () => {
                                 <option value={"China National Space Administration"}>China National Space Administration</option>
                             </select>
                         </div>
-                        <div className="astronauts-pagination-btns mb-5">
-                            <div className="d-flex justify-content-between">
-                                <button className={`btn btn-danger astronaut-btn-prev ${offsetNum === 0 ? "disabled" : "active"}`} onClick={getPrevAstronauts}>
-                                    <i className="fa-solid fa-caret-left"></i>
-                                </button>
-                                <span className="my-auto text-light fw-bold">{(offsetNum / 54)+1} / 11</span>
-                                <button className={`btn btn-success astronaut-btn-next ${offsetNum === 540 ? "disabled" : "active"}`} onClick={getNextAstronauts}>
-                                    <i className="fa-solid fa-caret-right"></i>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 {cosmonautData.map((elem) => {
