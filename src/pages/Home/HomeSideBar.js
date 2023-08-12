@@ -17,6 +17,12 @@ const HomeSideBar = () => {
             onNavigateHandler: function navigateHandler() { navigate("/news") }
         },
         {
+            cardTitle: "Astronauts",
+            image: require("../../assets/img/cpt_farkas_v2.jpg"),
+            cardText: "Find your Hero",
+            onNavigateHandler: function navigateHandler() { navigate("/astronauts") }
+        },
+        {
             cardTitle: "Launches",
             image: require("../../assets/img/spaceshuttle_liftOff_02.jpg"),
             cardText: "Upcoming Launches",
@@ -44,7 +50,7 @@ const HomeSideBar = () => {
                   launch_service_name={elem.launch_service_provider.name}
                   launch_service_type={elem.launch_service_provider.type}
                   launch_mission_description={elem.mission != null ? elem.mission.description : "No mission details"}
-                  orbit={elem.mission.orbit.name}
+                  orbit={elem.mission !== null ? elem.mission.orbit.name : "No mission details"}
                 />
               )
             })}

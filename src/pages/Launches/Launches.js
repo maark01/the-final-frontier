@@ -45,7 +45,7 @@ const Launches = () => {
   return (
     <CustomMotion>
       <div className="launch-container container">
-        <div className="row">
+        <div className="launch-row row">
           <div className="launch-col col-sm-12 col-md-12 col-lg-12">
             <div className="launch-header-content">
               <h3 className="launch-header-title text-center">Launches</h3>

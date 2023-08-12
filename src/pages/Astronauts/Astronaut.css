@@ -1,6 +1,7 @@
 .astronaut-container {
     color: #adb5bd;
     font-weight: bold;
+    padding: 2rem;
 }
 
 .astronaut-header-content {

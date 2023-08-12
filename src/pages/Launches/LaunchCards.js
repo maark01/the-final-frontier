@@ -37,7 +37,7 @@ const LaunchCards = ({ image, card_id, launch_name, launch_date, launch_service_
 
     const launchMissionStyle = {
         maxHeight: show ? "100%" : "0px",
-        overflow: "hidden",
+        overflowX: "hidden",
     }
 
     return (

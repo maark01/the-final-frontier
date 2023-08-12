@@ -1,8 +1,10 @@
+
 .launch-col,
 .launch-main-content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    overflow-x: hidden;
 }
 
 .launch-header-content {
