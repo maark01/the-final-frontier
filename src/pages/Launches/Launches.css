@@ -1,10 +1,12 @@
+.launch-container {
+    overflow-x: hidden;
+}
 
 .launch-col,
 .launch-main-content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    overflow-x: hidden;
 }
 
 .launch-header-content {
@@ -14,7 +16,7 @@
 
 .launch-card {
     max-width: 26rem;
-    min-height: 30rem;
+    min-height: 34rem;
     box-shadow: 0px 10px 15px #1e2124;
     background-color: #464c53;
     color: #adb5bd;
@@ -62,6 +64,7 @@
 @media (min-width: 62em) {
     .launch-card {
         width: 100%;
+        margin-bottom: 1rem;
     }
 
     .launch-header-title {
